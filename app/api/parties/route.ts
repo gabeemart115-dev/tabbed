@@ -30,7 +30,7 @@ export async function POST(req: NextRequest) {
 
   if (error) return NextResponse.json({ error: error.message }, { status: 500 })
 
-  const partyUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/party/${invite_code}`
+  const partyUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/login?next=/party/${invite_code}`
   const inviteUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/join/${invite_code}`
 
   await resend.emails.send({

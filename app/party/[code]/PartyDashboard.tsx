@@ -168,9 +168,13 @@ export default function PartyDashboard({ party, venueResults, isHost }: { party:
 
         {/* Booking Flow Section */}
         {!isHost && (
-          <div className="mt-10 text-center">
-            <a href="/login" className="text-xs tracking-widest uppercase text-zinc-500 hover:text-white transition border border-zinc-800 px-6 py-3">
-              Sign In to Manage This Tab
+          <div className="mt-10 border-t border-zinc-800 pt-10 text-center">
+            <p className="text-zinc-500 text-xs tracking-widest uppercase mb-4">Host Access</p>
+            <a
+              href={`/login?next=/party/${party.invite_code}`}
+              className="inline-block bg-white text-black px-10 py-4 text-sm font-semibold tracking-widest uppercase hover:bg-zinc-200 transition"
+            >
+              Sign In to Manage
             </a>
           </div>
         )}
