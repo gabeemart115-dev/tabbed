@@ -9,6 +9,7 @@ export async function POST(req: NextRequest) {
   const body = await req.json()
   const supabase = await createClient()
 
+  const { data: { user } } = await supabase.auth.getUser()
   const invite_code = generateInviteCode()
 
   const { data, error } = await supabase
@@ -22,6 +23,7 @@ export async function POST(req: NextRequest) {
       event_dates: body.event_dates,
       invite_code,
       status: 'pending_votes',
+      host_user_id: user?.id ?? null,
     })
     .select()
     .single()
