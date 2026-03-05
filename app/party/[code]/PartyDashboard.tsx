@@ -19,15 +19,12 @@ export default function PartyDashboard({ party, venueResults }: { party: any; ve
   return (
     <main className="min-h-screen bg-black text-white">
       <div className="max-w-6xl mx-auto px-6 md:px-12 py-16">
-
         <div className="mb-12">
           <p className="text-zinc-500 text-xs tracking-widest uppercase mb-2">Your Tab</p>
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight">{party.name}</h1>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-
-          {/* Left: Details + Invite */}
           <div className="space-y-10">
             <section>
               <p className="text-zinc-500 text-xs tracking-widest uppercase mb-4">Details</p>
@@ -62,7 +59,6 @@ export default function PartyDashboard({ party, venueResults }: { party: any; ve
             </section>
           </div>
 
-          {/* Middle: Vote Results */}
           <div>
             <p className="text-zinc-500 text-xs tracking-widest uppercase mb-4">
               Vote Results ({party.guests?.length ?? 0} voted)
@@ -103,7 +99,6 @@ export default function PartyDashboard({ party, venueResults }: { party: any; ve
             )}
           </div>
 
-          {/* Right: Guest List */}
           <div>
             <p className="text-zinc-500 text-xs tracking-widest uppercase mb-4">
               Guests ({party.guests?.length ?? 0} joined)
@@ -123,7 +118,6 @@ export default function PartyDashboard({ party, venueResults }: { party: any; ve
               </ul>
             )}
           </div>
-
         </div>
       </div>
     </main>

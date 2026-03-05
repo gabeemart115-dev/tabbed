@@ -13,13 +13,11 @@ export default async function PartyPage({ params }: { params: Promise<{ code: st
 
   if (!party) notFound()
 
-  // Fetch votes with venue names
   const { data: votes } = await supabase
     .from('votes')
     .select('venue_id, rank, venues(name, neighborhood, min_spend)')
     .eq('party_id', party.id)
 
-  // Tally scores: rank 1 = 3pts, rank 2 = 2pts, rank 3 = 1pt
   const scores: Record<string, { name: string; neighborhood: string; min_spend: number; score: number; votes: number }> = {}
   for (const v of votes ?? []) {
     const vid = v.venue_id
