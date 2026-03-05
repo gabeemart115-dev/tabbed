@@ -19,7 +19,6 @@ export async function POST(req: NextRequest) {
 
   if (error) return NextResponse.json({ error: error.message }, { status: 500 })
 
-  // Send confirmation SMS (requires Twilio trial account to be upgraded for non-verified numbers)
   if (process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_TOKEN && process.env.TWILIO_PHONE_NUMBER) {
     try {
       const client = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN)
@@ -30,7 +29,7 @@ export async function POST(req: NextRequest) {
         to: body.phone.startsWith('+') ? body.phone : `+1${body.phone}`,
       })
     } catch {
-      // SMS failed silently — don't block the join flow
+      // SMS failed silently
     }
   }
 

@@ -14,7 +14,6 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
     return NextResponse.json({ error: 'No votes yet' }, { status: 400 })
   }
 
-  // Score: rank 1 = 3pts, rank 2 = 2pts, rank 3 = 1pt
   const scores: Record<string, { score: number; venue: any }> = {}
   for (const vote of votes) {
     const vid = vote.venue_id
