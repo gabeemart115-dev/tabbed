@@ -45,15 +45,15 @@ export default function LoginForm({ next }: { next?: string }) {
           Enter the 6-digit code sent to <span className="text-white">{email}</span>
         </p>
         <input
-          className={`${inputClass} text-center text-2xl tracking-widest`}
-          placeholder="000000"
+          className={`${inputClass} text-center text-lg tracking-widest`}
+          placeholder="Enter your code"
           value={token}
-          onChange={e => setToken(e.target.value.replace(/\D/g, '').slice(0, 6))}
+          onChange={e => setToken(e.target.value.trim())}
           inputMode="numeric"
           required
         />
         {error && <p className="text-red-400 text-xs text-center">{error}</p>}
-        <button type="submit" disabled={loading || token.length < 6}
+        <button type="submit" disabled={loading || token.length < 4}
           className="w-full bg-white text-black py-4 text-sm font-semibold tracking-widest uppercase hover:bg-zinc-200 transition disabled:opacity-40"
         >
           {loading ? 'Verifying...' : 'Verify Code'}
