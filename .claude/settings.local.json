@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__claude_ai_Rube__RUBE_SEARCH_TOOLS",
+      "mcp__claude_ai_Rube__RUBE_MANAGE_CONNECTIONS",
+      "Bash(npx create-next-app@latest . --typescript --tailwind --app --no-src-dir --import-alias \"@/*\" --yes 2>&1)",
+      "Bash(npm install 2>&1 | tail -20)",
+      "Bash(npm install next@latest 2>&1 | tail -10)",
+      "mcp__claude_ai_Rube__RUBE_MULTI_EXECUTE_TOOL"
+    ]
+  }
+}
